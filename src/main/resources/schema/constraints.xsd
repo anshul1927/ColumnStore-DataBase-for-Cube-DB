@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="factvar_constraint_type">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="aggregation" type="aggregation_type" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="aggregation_type">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="sum"/>
+            <xs:enumeration value="count"/>
+            <xs:enumeration value="average"/>
+            <xs:enumeration value="mean"/>
+            <xs:enumeration value="mode"/>
+            <xs:enumeration value="median"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name = "inputs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "Constraints">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name = "FactVar" type = "factvar_constraint_type" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

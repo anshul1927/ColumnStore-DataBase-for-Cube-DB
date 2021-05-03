@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="col_type">
+        <xs:sequence>
+            <xs:element name="col_name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="col_dtype" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dim_type">
+        <xs:sequence>
+            <xs:element name="dim_name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="column" type="col_type" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="num_cols" type="xs:integer" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="fact_type">
+        <xs:sequence>
+            <xs:element name="fact_var" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="num_cols" type="xs:integer" use="required"/>
+        <xs:attribute name="num_variables" type="xs:integer" use="required"/>
+    </xs:complexType>
+    <xs:element name="star_schema">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Dimensions">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="dim" type="dim_type" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Fact" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="Variables" type="fact_type" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="num_dims" type="xs:integer" use="required"/>
+            <xs:attribute name="num_facts" type="xs:integer" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

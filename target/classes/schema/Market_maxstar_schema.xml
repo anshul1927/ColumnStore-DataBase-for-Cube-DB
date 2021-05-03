@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<star_schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="schema4star.xsd" num_dims="3" num_facts="1">
+	<dimensions>
+	<dim num_cols="2">
+		<dim_name>Order</dim_name>
+		<column>
+		<col_name>Order_ID</col_name>
+		<col_dtype>int</col_dtype>
+		</column>
+		<column>
+		<col_name>Order_Name</col_name>
+		<col_dtype>string</col_dtype>
+		</column>
+	</dim>
+		<dim num_cols="2">
+		<dim_name>Customer</dim_name>
+		<column>
+		<col_name>Cust_ID</col_name>
+		<col_dtype>int</col_dtype>
+		</column>
+		<column>
+		<col_name>Cust_Name</col_name>
+		<col_dtype>string</col_dtype>
+		</column>
+	</dim>
+		<dim num_cols="2">
+		<dim_name>Product</dim_name>
+		<column>
+		<col_name>Prod_Name</col_name>
+		<col_dtype>string</col_dtype>
+		</column>
+		<column>
+		<col_name>Prod_ID</col_name>
+		<col_dtype>int</col_dtype>
+		</column>
+	</dim>
+	</dimensions>
+	<Fact>Fact</Fact>
+	<Variables num_cols="5 "num_variables="2">
+		<fact_var>Sales</fact_var>
+		<fact_var>Profit</fact_var>
+	</Variables>
+</star_schema>

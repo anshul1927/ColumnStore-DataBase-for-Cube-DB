@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<inputs>
+	<Constraints>
+		<FactVar>
+			<name>Sales</name>
+			<aggregation>max</aggregation>
+		</FactVar>
+		<FactVar>
+			<name>Profit</name>
+			<aggregation>max</aggregation>
+		</FactVar>
+	</Constraints>
+</inputs>
